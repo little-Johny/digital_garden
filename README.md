@@ -1,6 +1,3 @@
-# digital_garden
-Mi repositorio personal de aprendizaje continuo.
-
 # 🌱 Mi Digital Garden
 
 Bienvenido a mi repositorio personal de conocimiento. Este es un espacio vivo donde documento lo que aprendo día a día sobre desarrollo de software, lenguajes de programación y arquitectura.
