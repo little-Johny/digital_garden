@@ -50,18 +50,19 @@ Al conectarte a una sesión remota, no estás clonando el código en tu máquina
 Por defecto, Livebook solo escucha en `127.0.0.1`. Debes permitir conexiones externas (`0.0.0.0`) y establecer una contraseña segura.
 
 *En PowerShell:*
-```powershell
+```powershellw
 $env:LIVEBOOK_IP = '0.0.0.0'
 $env:LIVEBOOK_PASSWORD = 'tu_password_seguro'
 livebook server
 ```
+
 **2. Conexión del GUEST (Invitado)**
 
-    Averigua la IP local del Host (comando `ipconfig`, ej: `192.168.1.50`).
+  Averigua la IP local del Host (comando `ipconfig`, ej: `192.168.1.50`).
 
-    Desde otra PC, abre el navegador e ingresa: `http://192.168.1.50:8080`.
+  Desde otra PC, abre el navegador e ingresa: `http://192.168.1.50:8080`.
 
-    Ingresa la contraseña definida.
+  Ingresa la contraseña definida.
 
 ---
 
@@ -75,4 +76,4 @@ Para colaborar desde distintas ubicaciones sin exponer puertos peligrosos a inte
 
 **Guest:** Usa la "Tailscale IP" de la máquina del Host para conectarse: http://100.x.x.x:8080.
 
-    >⚠️ Advertencia de Seguridad: Exponer Livebook en 0.0.0.0 sin una VPN en una red pública (cafetería, aeropuerto) es peligroso. Cualquiera con acceso podría ejecutar código en tu computadora. Úsalo solo en redes de confianza.
+>⚠️ Advertencia de Seguridad: Exponer Livebook en 0.0.0.0 sin una VPN en una red pública (cafetería, aeropuerto) es peligroso. Cualquiera con acceso podría ejecutar código en tu computadora. Úsalo solo en redes de confianza.
