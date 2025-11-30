@@ -150,3 +150,7 @@ graph TD;
     C-->D;
 ```
 ````
+## Recursos
+- [Documentación Oficial](https://markdown-here.com/)
+- [Comunidad / Foro](https://github.com/adam-p/markdown-here)
+- [Practica](https://commonmark.org/help/)

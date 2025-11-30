@@ -1,5 +1,5 @@
 # Elixir
-![Elixir Logo](https://raw.githubusercontent.com/elixir-lang/elixir-lang.github.com/master/images/logo/logo.png)
+![Elixir Logo](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fu2bioxgjb4ye4mnncdan.png)
 
 ## Introducción
 Es un lenguaje de propósito general que se utiliza con éxito en el desarrollo web, software embebido, ingestión de datos y procesamiento multimedia.
