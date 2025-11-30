@@ -45,6 +45,11 @@ true == :true   # true
 false == :false # true
 ```
 
+**Nil (`nil`)**
+Representa la ausencia de valor (como `null` o `None`).
+- Es también un átomo: `nil == :nil`.
+- Es **Falsy**: En Elixir, todo es verdadero excepto `false` y `nil`.
+
 ---
 
 ## 3. Colecciones
