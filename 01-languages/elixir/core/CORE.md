@@ -11,15 +11,15 @@ Esta sección cubre los fundamentos del lenguaje Elixir.
 ### 2. Fundamentos
 - [x] [Variables y Tipos de Datos](./fundamentals/basic-data-types/data-types.md)
 - [x] [Operadores](./fundamentals/basic-data-types/operators.md)
+- [x] [Pattern Matching](./fundamentals/pattern-matching.md)
 
 ### 3. Estructuras de Control
-- [ ] Condicionales (if, else, switch/match)
+- [ ] [Control Structures](./fundamentals/control-structures.md)
 - [ ] Bucles (for, while, recursion)
 
-### 4. Estructuras de Datos
-- [ ] Listas / Arrays
-- [ ] Mapas / Diccionarios
-- [ ] Tuplas / Sets
+### 4. Estructuras de Datos Asociativas
+- [ ] Keyword Lists
+- [ ] Mapas
 
 ### 5. Funciones y Módulos
 - [ ] Definición de Funciones
