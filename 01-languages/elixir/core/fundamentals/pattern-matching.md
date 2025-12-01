@@ -134,7 +134,19 @@ list = [1, 2, 3]
 
 -----
 
-## 3. Pin Operator (`^`)
+## 3. 🔄 Rebinding (Re-enlace)
+
+Es la capacidad de reutilizar el nombre de una variable. En Elixir los datos son inmutables, así que no estamos "cambiando" el valor en memoria, estamos haciendo que la etiqueta `x` apunte a un nuevo lugar.
+
+```elixir
+x = 1  # x apunta a la memoria 0x01 (valor 1)
+x = 2  # x ahora apunta a la memoria 0x02 (valor 2)
+# El 1 sigue existiendo en memoria hasta que el Garbage Collector lo limpie.
+```
+
+-----
+
+## 4. Pin Operator (`^`)
 
 Por defecto, Elixir permite **re-asignar** variables (rebinding). Si queremos forzar una **comparación** con el valor existente de una variable en lugar de reasignarla, usamos el "Pin operator" (`^`).
 
