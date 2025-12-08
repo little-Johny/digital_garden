@@ -14,19 +14,20 @@ Esta sección cubre los fundamentos del lenguaje Elixir.
 - [x] [Pattern Matching](./fundamentals/pattern-matching.md)
 
 ### 3. Estructuras de Control
-- [ ] [Control Structures](./fundamentals/control-structures.md)
+- [x] [Control Structures](./fundamentals/control-structures.md)
 - [ ] Bucles (for, while, recursion)
 
 ### 4. Estructuras de Datos Asociativas
-- [ ] Keyword Lists
-- [ ] Mapas
+- [x] Keyword Lists
+- [x] Mapas
 
 ### 5. Funciones y Módulos
-- [ ] Definición de Funciones
-- [ ] Módulos / Paquetes
+- [x] Definición de Funciones
+- [x] Módulos
 - [ ] Scope y Closures
 
 ### 6. Avanzado (Opcional)
+- [ ] Recursion
 - [ ] Manejo de Errores
 - [ ] Concurrencia / Asincronía
 - [ ] Metaprogramación
