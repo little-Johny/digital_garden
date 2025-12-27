@@ -9,6 +9,7 @@ Esta sección cubre los fundamentos del lenguaje Elixir.
 - [x] Instalar Livebook
 
 ### 2. Fundamentos
+- [x] [Modos de Ejecución](./fundamentals/execution-modes.md)
 - [x] [Variables y Tipos de Datos](./fundamentals/basic-data-types/data-types.md)
 - [x] [Operadores](./fundamentals/basic-data-types/operators.md)
 - [x] [Pattern Matching](./fundamentals/pattern-matching.md)
