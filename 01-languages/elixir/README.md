@@ -77,7 +77,7 @@ function hola(nombre) {
 ## Ruta de Aprendizaje
 Esta carpeta está organizada para guiarte desde los fundamentos hasta el dominio del ecosistema.
 
-- **[Core](./core/README.md)**: Sintaxis, estructuras de datos y conceptos fundamentales. 
+- **[Core](./core/CORE.md)**: Sintaxis, estructuras de datos y conceptos fundamentales. 
 - **[Ecosystem](./ecosystem/README.md)**: Herramientas, librerías y frameworks.
 - **[Projects](./projects/README.md)**: Proyectos prácticos para aplicar lo aprendido.
 
