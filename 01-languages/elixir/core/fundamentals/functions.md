@@ -22,13 +22,28 @@ sum.(1, 2) # => 3
 
 ### Sintaxis Corta de Captura (`&`)
 
-Existe una sintaxis abreviada para crear funciones anónimas usando el operador de captura `&`.
+El operador de captura `&` permite crear funciones anónimas de forma concisa, reemplazando la sintaxis `fn -> end` por referencias posicionales a argumentos (`&1`, `&2`, etc.).
 
+**Ejemplo Básico:**
 ```elixir
+# Forma tradicional
+sum = fn a, b -> a + b end
+
+# Con operador de captura
 sum = &(&1 + &2)
 sum.(1, 2) # => 3
 ```
-Aquí `&1` representa el primer argumento, `&2` el segundo, y así sucesivamente.
+
+**Ejemplo Avanzado:**
+Es especialmente útil para reducir verbosidad en funciones de orden superior.
+
+```elixir
+# Sin captura
+sumar = fn lista -> Enum.reduce(lista, 0, fn x, acc -> x + acc end) end
+
+# Con captura
+sumar = &Enum.reduce(&1, 0, &2 + &3)
+```
 
 ## Funciones Nombradas
 
