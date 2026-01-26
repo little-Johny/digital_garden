@@ -2,6 +2,31 @@
 
 El módulo `Enum` es el caballo de batalla de Elixir. Dado que las listas y mapas son fundamentales, `Enum` proporciona las herramientas para iterar, transformar y filtrar estas colecciones.
 
+## Analogía: La Fábrica
+
+Imagina una fábrica con estaciones de trabajo:
+
+| Tipo | Comportamiento | Memoria |
+|------|----------------|---------|
+| **Enum (Eager)** | Funciona por lotes completos. Estación 1 procesa _todo_, pasa _todo_ a Estación 2, etc. | Alto consumo: guarda listas intermedias en RAM. |
+| **Stream (Lazy)** | Funciona como una cinta transportadora. Pieza por pieza pasa de Estación 1 a Estación 2 inmediatamente. | Constante: sin listas intermedias. |
+
+```elixir
+# Enum: Crea lista de 1M, luego lista de 500k, luego suma
+1..1_000_000
+|> Enum.map(& &1 * 3)
+|> Enum.filter(&(rem(&1, 2) != 0))
+|> Enum.sum()
+
+# Stream: Procesa elemento por elemento, memoria constante
+1..1_000_000
+|> Stream.map(& &1 * 3)
+|> Stream.filter(&(rem(&1, 2) != 0))
+|> Enum.sum()  # Aquí se dispara todo el proceso
+```
+
+> **Clave:** En el ejemplo con Stream, nunca existe una lista de 1M en memoria. `#Stream<...>` es un contrato o receta pendiente de ejecución.
+
 ## 1. Enum.map (Transformación)
 
 Transforma cada elemento de una colección aplicando una función. Devuelve una nueva lista con los resultados.
@@ -104,3 +129,64 @@ Enum.sum(Enum.filter(Enum.map(1..1_000_000, &(&1 * 3)), odd?))
 |> Enum.filter(odd?)
 |> Enum.sum()
 ```
+
+---
+
+## 6. Métodos Clave de Stream
+
+| Función | Descripción | Ejemplo |
+|---------|-------------|---------|
+| `Stream.cycle/1` | Bucle infinito sobre una lista | Colores alternos, round-robin |
+| `Stream.unfold/2` | Genera valores basados en el anterior | Secuencias matemáticas |
+| `Enum.take/2` | Válvula de corte para streams infinitos | Limitar resultados |
+| `File.stream!/1` | Lee archivos línea por línea | Archivos gigantes sin cargar en RAM |
+
+```elixir
+# Ciclo infinito - necesita Enum.take para cortar
+Stream.cycle([1, 2, 3]) |> Enum.take(7)
+# [1, 2, 3, 1, 2, 3, 1]
+
+# Unfold: genera Fibonacci
+Stream.unfold({0, 1}, fn {a, b} -> {a, {b, a + b}} end)
+|> Enum.take(10)
+# [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+# Leer archivo grande línea por línea
+File.stream!("huge_file.csv")
+|> Stream.map(&String.trim/1)
+|> Enum.take(100)
+```
+
+---
+
+## 7. Ejercicios Prácticos
+
+### Ejercicio 1: Contador Infinito
+
+```elixir
+Stream.cycle([1, 0]) |> Enum.take(8)
+# [1, 0, 1, 0, 1, 0, 1, 0]
+```
+
+### Ejercicio 2: Tubería Perezosa (Early Exit)
+
+```elixir
+1..1000
+|> Stream.map(&(&1 * 2))
+|> Stream.filter(&(&1 > 1500))
+|> Enum.take(1)
+# [1502] -> Deja de calcular al encontrar el primero
+```
+
+El Stream deja de procesar elementos en cuanto `Enum.take(1)` obtiene su resultado. No procesa los 1000 elementos.
+
+---
+
+## 8. Cuándo Usar Stream vs Enum
+
+| Usar Stream | Usar Enum |
+|-------------|-----------|
+| Archivos muy grandes | Listas pequeñas/medianas |
+| Listas potencialmente infinitas | Cuando necesitas todos los resultados |
+| APIs paginadas | Operaciones simples de una sola pasada |
+| Cuando solo necesitas los primeros N | Cuando la legibilidad es prioritaria |

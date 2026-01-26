@@ -41,8 +41,8 @@ Es especialmente útil para reducir verbosidad en funciones de orden superior.
 # Sin captura
 sumar = fn lista -> Enum.reduce(lista, 0, fn x, acc -> x + acc end) end
 
-# Con captura
-sumar = &Enum.reduce(&1, 0, &2 + &3)
+# Con captura (la función interna usa &)
+sumar = fn lista -> Enum.reduce(lista, 0, &(&1 + &2)) end
 ```
 
 ## Funciones Nombradas
