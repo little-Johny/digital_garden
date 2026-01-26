@@ -2,7 +2,7 @@
 
 Bienvenido a mi repositorio personal de conocimiento. Este es un espacio vivo donde documento lo que aprendo día a día sobre desarrollo de software, lenguajes de programación y arquitectura.
 
-> "No documento para otros, documento para mi 'yo' del futuro que habrá olvidado cómo funciona esto."
+> "No documento para otros, documento para mi 'yo' del futuro que quizás habrá olvidado cómo funciona esto."
 
 ## 📂 Estructura del Repositorio
 
@@ -37,8 +37,8 @@ Este repositorio sigue la filosofía "Git First".
 
 🚀 Tecnologías y Herramientas
 
-    Editor: (Tu IDE aquí, ej. VS Code / Antigravity)
+    Editor: VS Code / Antigravity
 
-    Formato: Markdown
+    Formato: Markdown 
 
     Control de versiones: Git
