@@ -35,22 +35,78 @@ end
 
 ## Atributos de Módulo
 
-Los atributos de módulo sirven para tres propósitos:
+Los atributos de módulo en Elixir (prefijados con `@`) sirven como anotaciones, constantes de tiempo de compilación y almacenamiento de metadatos.
 
-1.  **Anotaciones**: Como `@doc` y `@moduledoc` para documentación.
-2.  **Constantes**: Almacenar valores para ser reutilizados.
-3.  **Temporary storage**: Used during compilation.
+### 1. Documentación (Atributos Reservados)
+
+Elixir trata la documentación como ciudadano de primera clase.
+
+- `@moduledoc`: Documentación general del módulo.
+- `@doc`: Documentación para la función o macro inmediatamente siguiente.
+
+**Convención:** La primera línea es un resumen corto. Tras un salto de línea, detalles completos en Markdown.
 
 ```elixir
-defmodule MyModule do
-  @moduledoc "This is the module documentation."
+defmodule Math do
+  @moduledoc """
+  Provee funciones matemáticas básicas.
 
-  @my_constant 3.14
+  ## Examples
+      iex> Math.sum(1, 2)
+      3
+  """
 
-  @doc "Returns the constant."
-  def get_constant, do: @my_constant
+  @doc """
+  Calcula la suma de dos números.
+  """
+  def sum(a, b), do: a + b
 end
 ```
+
+### 2. Atributos como Constantes
+
+Se usan para valores que no cambian. **Se evalúan en tiempo de compilación**.
+
+- **Inmutabilidad:** No cambian durante la ejecución.
+- **Redefinición:** Puedes redefinirlos en el cuerpo del módulo; las funciones capturan el valor presente en el momento de su definición.
+
+```elixir
+defmodule MyServer do
+  @initial_state %{host: "127.0.0.1", port: 3456} # Evaluado al compilar
+  @my_data 14
+
+  def first_data, do: @my_data   # Retorna 14
+
+  @my_data 13
+  def second_data, do: @my_data  # Retorna 13 (capturó el nuevo valor)
+
+  def config, do: @initial_state
+end
+```
+
+### 3. Typespecs (@type y @spec)
+
+Definen contratos para herramientas de análisis estático (como Dialyzer) y documentación.
+
+- `@type`: Define un tipo de dato personalizado ("alias de tipo").
+- `@spec`: Define la firma (tipos de entrada y salida) de una función.
+
+```elixir
+defmodule MyApp.Status do
+  @type custom_uri :: %URI{}
+
+  @service URI.parse("http://example.com") # Constante calculada
+
+  @spec status(String.t()) :: {:ok, custom_uri()} | {:error, any()}
+  def status(_email), do: {:ok, @service}
+end
+```
+
+### Resumen de Características
+
+1.  **Validación**: Acceder a un atributo no definido lanza error de compilación.
+2.  **Rendimiento**: Los valores se inyectan en el bytecode (ultrarrápido).
+3.  **Cálculo Previo**: Útil para pre-calcular valores costosos una sola vez al compilar (como `URI.parse/1` en el ejemplo).
 
 ## Compilación
 
