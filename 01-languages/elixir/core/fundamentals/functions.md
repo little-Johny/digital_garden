@@ -67,7 +67,7 @@ end
 
 ## Pattern Matching y Cláusulas
 
-Elixir permite definir múltiples cláusulas para una misma función. Elixir intentará hacer "match" con los argumentos de arriba a abajo.
+Elixir permite definir múltiples cláusulas para una misma función. Elixir intentará hacer "match" con los argumentos de arriba a abajo. Esto permite crear un nuevo comportamiento para una función existente usando el principio de Open/Closed.
 
 ```elixir
 defmodule Greeting do
