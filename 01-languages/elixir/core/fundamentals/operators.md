@@ -86,3 +86,58 @@ String.upcase(String.trim("  elixir  "))
 |> String.trim()
 |> String.upcase()
 ```
+
+## 6. Operadores Bitwise (Bit a Bit)
+
+Elixir provee el módulo `Bitwise` para manipular datos a nivel de bits. Estas operaciones trabajan directamente sobre la representación binaria de los enteros.
+
+### Importar el módulo
+
+```elixir
+import Bitwise
+
+# Ahora puedes usar las funciones directamente
+band(9, 3)  # => 1
+```
+
+### Operaciones disponibles
+
+| Operador    | Función      | Descripción                          | Ejemplo                    |
+| :---------- | :----------- | :----------------------------------- | :------------------------- |
+| `&&&`       | `band/2`     | AND: 1 solo si ambos bits son 1     | `band(0b1010, 0b1100)` → `0b1000` (8) |
+| `\|\|\|`    | `bor/2`      | OR: 1 si al menos un bit es 1       | `bor(0b1010, 0b1100)` → `0b1110` (14) |
+| `^^^`       | `bxor/2`     | XOR: 1 solo si los bits son distintos| `bxor(0b1010, 0b1100)` → `0b0110` (6) |
+| `<<<`       | `bsl/2`      | Shift Left: desplaza bits a la izq   | `bsl(1, 3)` → `0b1000` (8) |
+| `>>>`       | `bsr/2`      | Shift Right: desplaza bits a la der  | `bsr(8, 2)` → `0b10` (2)  |
+| `~~~`       | `bnot/1`     | NOT: invierte todos los bits         | `bnot(0b1010)` → `-11`    |
+
+### Ejemplo práctico: Closures con Bitwise
+
+Un patrón común es combinar operaciones bitwise con anonymous functions para crear pipelines de transformación:
+
+```elixir
+import Bitwise
+
+# Crear funciones que "capturan" un secreto
+secret_and = fn secret ->
+  fn value -> band(value, secret) end
+end
+
+secret_xor = fn secret ->
+  fn value -> bxor(value, secret) end
+end
+
+# Componer operaciones
+mask = secret_and.(0b1111)
+scramble = secret_xor.(0b1010)
+
+42 |> mask.() |> scramble.()
+# => 0
+```
+
+### ¿Cuándo usarlos?
+
+- **Máscaras de bits**: Verificar/establecer flags individuales en un entero.
+- **Protocolos de red**: Parsear headers y campos de bits.
+- **Criptografía básica**: Operaciones XOR para cifrado simple.
+- **Optimización**: Multiplicar/dividir por potencias de 2 con shifts.

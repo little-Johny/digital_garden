@@ -13,8 +13,8 @@ Esta sección cubre los fundamentos del lenguaje Elixir.
 
 - [x] [Modos de Ejecución](./fundamentals/execution-modes.md)
 - [x] [Variables y Tipos de Datos](./fundamentals/data-types.md)
-- [x] [Strings, Binarios y Grafemas](./fundamentals/strings-binaries.md)
-- [x] [Operadores](./fundamentals/operators.md)
+- [x] [Strings, Binarios, Grafemas y Charlists](./fundamentals/strings-binaries.md)
+- [x] [Operadores (incluye Bitwise)](./fundamentals/operators.md)
 - [x] [Pattern Matching](./fundamentals/pattern-matching.md)
 
 ### 3. Estructuras de Control
