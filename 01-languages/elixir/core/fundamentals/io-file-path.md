@@ -18,10 +18,41 @@ Aunque ambos se visualizan en la misma terminal, el sistema operativo los trata 
 IO.puts("Hola Mundo")
 
 # Lee lo que el usuario escribe (stdin)
+# IMPORTANTE: siempre retorna el string con "\n" al final
 nombre = IO.gets("¿Cómo te llamas? ")
 
 # Escribir específicamente en el canal de errores (stderr)
 IO.puts(:stderr, "Algo salió muy mal")
+```
+
+### IO.inspect — Debugging sin romper el flujo
+
+`IO.inspect/2` imprime **cualquier valor** (no solo strings) y lo **retorna sin modificarlo**. Esto lo hace ideal para insertar en medio de un pipeline sin alterar el resultado.
+
+```elixir
+# Retorna el mapa tal cual, además de imprimirlo
+IO.inspect(%{nombre: "Ana", nivel: 3}, label: "personaje")
+# > personaje: %{nivel: 3, nombre: "Ana"}
+# => %{nivel: 3, nombre: "Ana"}
+
+# Dentro de un pipeline — no rompe la cadena
+"  Mathilde\n"
+|> String.trim()
+|> IO.inspect(label: "nombre limpio")  # imprime y pasa el valor al siguiente paso
+|> String.upcase()
+# => "MATHILDE"
+```
+
+### Leer input y convertir tipo
+
+`IO.gets/1` **siempre retorna un String**, incluido el `\n` final. El patrón habitual cuando necesitas un número:
+
+```elixir
+nivel =
+  IO.gets("¿Cuál es tu nivel?\n")
+  |> String.trim()        # elimina "\n" y espacios
+  |> String.to_integer()  # convierte a entero
+# => 2
 ```
 
 ## 2. Módulo File (El "Linux" de Elixir)
