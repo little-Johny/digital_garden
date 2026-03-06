@@ -13,7 +13,7 @@ defmodule TakeANumber do
         loop(state + 1)
       :stop ->
         :ok
-      unknown ->
+      _unknown ->
         loop(state)
     end
   end
