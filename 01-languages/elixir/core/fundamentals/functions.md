@@ -142,6 +142,44 @@ string
 
 Esto equivale a `String.upcase(String.trim(string))`, pero es mucho más legible.
 
+### `then/2` — Lógica condicional dentro del pipe
+
+`then/2` recibe un valor y una función anónima, aplica la función al valor y retorna el resultado. Es útil cuando necesitás lógica más compleja (como un `case`) dentro de un pipeline sin romper la cadena.
+
+```elixir
+# Sin then: necesitás una variable intermedia
+result = some_value
+result = case condition do
+  true  -> transform(result)
+  false -> result
+end
+
+# Con then: todo queda en el pipeline
+some_value
+|> then(fn value ->
+  case condition do
+    true  -> transform(value)
+    false -> value
+  end
+end)
+```
+
+**Caso de uso típico:** aplicar un filtro opcional dependiendo de si una opción fue provista.
+
+```elixir
+def filter(list, opts \\ []) do
+  list
+  |> then(fn items ->
+    case Keyword.get(opts, :year) do
+      nil  -> items
+      year -> filter_by_year(items, year)
+    end
+  end)
+end
+```
+
+> `then/2` es básicamente `|>` con una función anónima inline. Está en el módulo `Kernel`.
+
 ## Captura de Funciones Nombradas
 
 Podemos "capturar" una función nombrada como si fuera anónima usando `&Modulo.funcion/aridad`.
