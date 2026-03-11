@@ -78,7 +78,50 @@ A diferencia de otros lenguajes que usan `+`, Elixir usa `<>` para concatenar bi
 
 ---
 
-## 5. Resumen de Herramientas
+## 5. Bitstrings a nivel de bits (`::size(n)`)
+
+Un **binary** es un caso especial de bitstring cuyo tamaño total es múltiplo de 8. Un **bitstring** puede tener cualquier cantidad de bits:
+
+```elixir
+is_binary(<<1::8>>)     # => true  (8 bits = 1 byte)
+is_binary(<<1::4>>)     # => false (4 bits, no es múltiplo de 8)
+is_bitstring(<<1::4>>)  # => true  (todo binary es bitstring, pero no al revés)
+```
+
+### El modificador `::size(n)`
+
+Dentro de `<< >>`, puedes especificar cuántos bits ocupa cada segmento. La forma `::size(n)` y `::n` son equivalentes:
+
+```elixir
+<<7::size(4)>>  ==  <<7::4>>   # "almacena el valor 7 en 4 bits"
+
+# Al concatenar segmentos se forman bytes completos:
+<<0b0001::4, 0b0010::4>>  # => <<18>>  (un byte: 00010010)
+```
+
+### Pattern matching sobre bitstrings
+
+El mismo modificador funciona para extraer valores:
+
+```elixir
+<<first::4, second::4>> = <<18>>
+# first  => 1   (0001)
+# second => 2   (0010)
+```
+
+Para iterar sobre un bitstring con segmentos de tamaño fijo, se usa `::bitstring` para capturar el resto:
+
+```elixir
+<<segment::4, rest::bitstring>> = <<18, 4>>
+# segment => 1
+# rest    => <<2, 4>>  (los bits restantes)
+```
+
+> ⚠️ El patrón `<<>>` representa un bitstring vacío y se usa como caso base al recursar sobre bitstrings.
+
+---
+
+## 6. Resumen de Herramientas
 
 - `String.length/1`: Cuenta grafemas (lo que ves).
 - `byte_size/1`: Cuenta bytes (memoria).

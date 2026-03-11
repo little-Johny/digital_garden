@@ -44,7 +44,7 @@ Siempre pedir confirmación antes de hacer un commit.
 
 ## Workflow: Exercism
 
-### Comando: "nuevo ejercicio `<lenguaje>/<nombre>`
+### Comando: "nuevo ejercicio `<lenguaje>/<nombre>`"
 
 1. Leer `01-languages/exercism/<lenguaje>/<nombre>/README.md`
 2. Identificar los conceptos nuevos que introduce el ejercicio

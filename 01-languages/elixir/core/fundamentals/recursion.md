@@ -29,7 +29,26 @@ def sumar([head | tail], acc) do
 end
 ```
 
-## 3. Ejemplos de Código
+## 3. Convención `do_`
+
+Para que el acumulador sea inicializado por el autor y no por quien usa la función, se declaran dos funciones:
+
+- Una **pública** que recibe solo los datos y arranca el acumulador
+- Una **privada** con prefijo `do_` que recibe los datos + el acumulador
+
+```elixir
+# Pública: el usuario solo pasa la lista
+def count(list), do: do_count(list, 0)
+
+# Privada: lleva el acumulador internamente
+defp do_count([], acc), do: acc
+defp do_count([_head | tail], acc), do: do_count(tail, acc + 1)
+```
+
+> Es la convención idiomática en Elixir para funciones recursivas con acumulador.
+
+## 4. Ejemplos de Código
+
 
 ### Sintaxis Básica
 ```elixir
@@ -109,7 +128,7 @@ Store.collect_cart([10, 20, 30])
 # "Total: 60"
 ```
 
-## 4. Algoritmos Reduce y Map
+## 5. Algoritmos Reduce y Map
 
 ### Reduce
 - Al proceso de tomar una lista y reducirla a un único valor se le conoce como `reduce` y es un concepto fundamental en la programación funcional.
@@ -173,16 +192,16 @@ Enum.map([1, 2, 3], fn x -> x * 2 end)
 # Resultado: [2, 4, 6]
 ```
 
-## 5. Buenas Prácticas (Do's & Don'ts)
+## 6. Buenas Prácticas (Do's & Don'ts)
 
 - ✅ **Usar Acumuladores:** Para asegurar la optimización de llamada final (TCO), pasa el estado acumulado como argumento en la función recursiva.
 - ✅ **Definir Casos Base Claros:** Asegúrate de que tus casos base (como una lista vacía `[]` o `0`) sean visibles y alcanzables para evitar bucles infinitos.
 - ❌ **Evitar Recursión Manual Innecesaria:** Prefiere siempre las funciones del módulo `Enum` (`map`, `reduce`, `filter`, etc.) sobre la recursión manual, ya que son más legibles, estándar y están optimizadas.
 - ⚠️ **Cuidado con la Construcción de Listas:** Recuerda que construir listas en la llamada de retorno (como `[h | recursive_call(t)]`) rompe la TCO; si necesitas rendimiento con listas grandes, usa construcción inversa con acumulador y luego invierte la lista, o usa `Enum.map`.
 
-## 6. Relacionado
+## 7. Relacionado
 - [Enlace a otro tema del jardín digital](./otro-tema.md)
 
-## 7. Referencias Externas
+## 8. Referencias Externas
 - [Documentación Oficial de Elixir](https://elixir-lang.org/docs.html)
 - [Elixir School](https://elixirschool.com/)
