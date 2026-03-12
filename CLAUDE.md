@@ -50,8 +50,9 @@ Siempre pedir confirmación antes de hacer un commit.
 2. Identificar los conceptos nuevos que introduce el ejercicio
 3. Revisar los archivos de apuntes relevantes en `01-languages/<lenguaje>/` y determinar si ya están documentados o si hay que complementarlos
 4. Explicar los conceptos nuevos al usuario (sin resolver el ejercicio)
-5. Explicar qué pide el ejercicio, tarea por tarea
-6. Hacer el commit inicial: `feat: Add <lenguaje> Exercism #N exercise '<Nombre>' with initial files`
+5. Explicar el contexto narrativo del ejercicio: el escenario o historia que plantea (ej. "estás en un laboratorio y...", incluyendo convenciones o tablas relevantes)
+6. Explicar qué pide el ejercicio, tarea por tarea
+7. Hacer el commit inicial: `feat: Add <lenguaje> Exercism #N exercise '<Nombre>' with initial files`
 
 ### Comando: "finalizar ejercicio" (o "hacer commit")
 
