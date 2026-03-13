@@ -16,6 +16,7 @@ Esta sección cubre los fundamentos del lenguaje Elixir.
 - [x] [Strings, Binarios, Grafemas y Charlists](./fundamentals/strings-binaries.md)
 - [x] [Operadores (incluye Bitwise)](./fundamentals/operators.md)
 - [x] [Pattern Matching](./fundamentals/pattern-matching.md)
+- [x] [Fechas y Tiempo](./fundamentals/dates-time.md)
 
 ### 3. Estructuras de Control
 
