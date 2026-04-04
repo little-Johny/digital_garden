@@ -26,10 +26,12 @@ defmodule LibraryFees do
   end
 
   def calculate_late_fee(checkout, return, rate) do
-    checkout_date = datetime_from_string(checkout)
+    # checkout_date = datetime_from_string(checkout)
     real_return_date = datetime_from_string(return)
-    planned_return_date = return_date(checkout_date)
-    real_diff = days_late(planned_return_date, real_return_date)
+    # planned_return_date = return_date(checkout_date)
+    # real_diff = days_late(planned_return_date, real_return_date)
+
+    real_diff = checkout |> datetime_from_string() |> return_date() |> days_late(real_return_date)
 
     if monday?(real_return_date) do
       div(real_diff * rate, 2)
