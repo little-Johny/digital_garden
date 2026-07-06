@@ -57,7 +57,8 @@ Siempre pedir confirmación antes de hacer un commit.
 
 1. Leer el archivo de solución actual
 2. Verificar que compila y no tiene errores evidentes
-3. Hacer el commit: `feat: Resolve <Nombre> exercism #N`
+3. Vincular apunte ↔ ejercicio: agregar el ejercicio a la sección `## 🏋️ Practicado en` de los apuntes cuyos conceptos se practicaron (crear la sección al final del apunte si no existe), con enlace relativo al README del ejercicio y una nota corta del concepto aplicado
+4. Hacer el commit: `feat: Resolve <Nombre> exercism #N`
 
 ## Reglas para ejercicios de Exercism
 

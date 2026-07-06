@@ -140,3 +140,10 @@ case File.read("config.json") do
     IO.puts("Hubo otro error: #{reason}")
 end
 ```
+
+
+-----
+
+## 🏋️ Practicado en
+
+- [rpg-character-sheet (#15)](../../exercism/rpg-character-sheet/README.md) — IO.puts, IO.gets, IO.inspect

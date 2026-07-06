@@ -87,4 +87,5 @@ Requiere el CLI de exercism (instalado, workspace en `~/Exercism`). El track es 
 
 1. **Mini-review:** 2-3 frases sobre qué salió bien y qué concepto conviene reforzar.
 2. **Actualizar `progress.md`:** si el lenguaje tiene uno, proponer la actualización (ejercicio completado, reto marcado, concepto reforzado) y aplicarla solo con confirmación. Si no tiene, sugerir crearlo cuando el lenguaje empiece a tener historial.
-3. **Commit:** proponer mensaje según convenciones (`feat:` para soluciones, `docs:` para guías/apuntes) y esperar confirmación.
+3. **Vincular apunte ↔ ejercicio:** agregar lo practicado a la sección `## 🏋️ Practicado en` de los apuntes relevantes (crearla al final si no existe), con enlace relativo al ejercicio/proyecto y una nota corta del concepto aplicado. Si el concepto no tiene apunte aún, proponer crearlo (skill scaffold-note).
+4. **Commit:** proponer mensaje según convenciones (`feat:` para soluciones, `docs:` para guías/apuntes) y esperar confirmación.

@@ -122,3 +122,10 @@ Supervisor
 - **Operaciones I/O bloqueantes** (ej. llamadas a APIs externas)
 - **Estado aislado** (cada proceso puede mantener su propio estado)
 - **Tolerancia a fallos** (aislar componentes que pueden fallar)
+
+
+-----
+
+## 🏋️ Practicado en
+
+- [take-a-number (#17)](../../exercism/take-a-number/README.md) — spawn, send/receive

@@ -108,3 +108,11 @@ Permite renombrar módulos para escribir menos. Tiene alcance léxico (solo vive
 alias MyApp.Utils.Math.Geometry, as: Geo
 Geo.calculate()
 ```
+
+-----
+
+## 🏋️ Practicado en
+
+- [log-level (#5)](../../exercism/log-level/README.md) — átomos
+- [language-list (#6)](../../exercism/language-list/README.md) — listas
+- [kitchen-calculator (#9)](../../exercism/kitchen-calculator/README.md) — tuplas

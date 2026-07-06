@@ -163,7 +163,7 @@ get_in(data, ["a", "b", "c"])  # => 42
 get_in(data, ["a", "x", "c"])  # => nil
 ```
 
-> Practicado en el ejercicio **basketball-website** (Exercism #22): primero implementando la navegación con recursión propia, luego refactorizando con `get_in`.
+> Practicado en el ejercicio [**basketball-website** (Exercism #22)](../../exercism/basketball-website/README.md): primero implementando la navegación con recursión propia, luego refactorizando con `get_in`.
 
 ### Comparativa de formas de acceso a un Map
 
@@ -195,3 +195,11 @@ Son **Maps con esteroides**. Tienen claves predefinidas (como una clase) y propo
 | **Pattern Match** | Exacto (difícil de usar) | Subset (muy potente) |
 | **Performance** | Lento en listas grandes ($O(n)$) | Rápido ($O(log n)$ o mejor) |
 | **Uso Principal** | Opciones de funciones, Ecto | Estructura de datos general |
+
+-----
+
+## 🏋️ Practicado en
+
+- [high-score (#12)](../../exercism/high-score/README.md) — maps y módulo Map
+- [wine-cellar (#18)](../../exercism/wine-cellar/README.md) — keyword lists
+- [basketball-website (#22)](../../exercism/basketball-website/README.md) — Access Behaviour y get_in

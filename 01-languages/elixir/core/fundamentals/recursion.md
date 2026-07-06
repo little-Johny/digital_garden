@@ -205,3 +205,12 @@ Enum.map([1, 2, 3], fn x -> x * 2 end)
 ## 8. Referencias Externas
 - [Documentación Oficial de Elixir](https://elixir-lang.org/docs.html)
 - [Elixir School](https://elixirschool.com/)
+
+
+-----
+
+## 🏋️ Practicado en
+
+- [bird-count (#11)](../../exercism/bird-count/README.md) — recursión sobre listas
+- [dna-encoding (#20)](../../exercism/dna-encoding/README.md) — recursión de cola
+- [basketball-website (#22)](../../exercism/basketball-website/README.md) — recursión sobre estructuras anidadas

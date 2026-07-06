@@ -189,3 +189,11 @@ fun = &Math.sum/2
 # Ahora fun se puede usar como una función anónima
 # fun.(1, 2)
 ```
+
+-----
+
+## 🏋️ Practicado en
+
+- [lasagna (#2)](../../exercism/lasagna/) — funciones nombradas y aridad
+- [secrets (#4)](../../exercism/secrets/README.md) — funciones anónimas
+- [high-school-sweetheart (#10)](../../exercism/high-school-sweetheart/README.md) — pipe operator

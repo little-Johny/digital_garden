@@ -187,3 +187,11 @@ Si hay un dato que **no nos interesa** y no queremos gastar memoria asignándolo
 [head | _] = [1, 2, 3]
 head # 1
 ```
+
+
+-----
+
+## 🏋️ Practicado en
+
+- [guessing-game (#7)](../../exercism/guessing-game/README.md) — pattern matching y guards
+- [kitchen-calculator (#9)](../../exercism/kitchen-calculator/README.md) — pattern matching en tuplas

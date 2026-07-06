@@ -274,3 +274,11 @@ Dado que los módulos son átomos, puedes llamar a cualquier librería estándar
 # Esto es equivalente a llamar al módulo Elixir por su nombre completo de átomo:
 :"Elixir.List".flatten([1, [2], 3])
 ```
+
+
+-----
+
+## 🏋️ Practicado en
+
+- [hello-world (#1)](../../exercism/hello-world/) — módulos y funciones
+- [high-score (#12)](../../exercism/high-score/README.md) — atributos de módulo

@@ -141,3 +141,10 @@ scramble = secret_xor.(0b1010)
 - **Protocolos de red**: Parsear headers y campos de bits.
 - **Criptografía básica**: Operaciones XOR para cifrado simple.
 - **Optimización**: Multiplicar/dividir por potencias de 2 con shifts.
+
+-----
+
+## 🏋️ Practicado en
+
+- [pacman-rules (#3)](../../exercism/pacman-rules/) — operadores booleanos
+- [secrets (#4)](../../exercism/secrets/README.md) — operadores Bitwise

@@ -227,3 +227,12 @@ end
 | **Creación**      | `"texto"`              | `~c"texto"`               |
 | **Uso principal** | Código Elixir          | Interop con Erlang        |
 | **Rendimiento**   | Compacto en memoria    | Mayor consumo de memoria  |
+
+
+-----
+
+## 🏋️ Practicado en
+
+- [german-sysadmin (#14)](../../exercism/german-sysadmin/README.md) — charlists
+- [paint-by-number (#19)](../../exercism/paint-by-number/README.md) — bitstrings
+- [dna-encoding (#20)](../../exercism/dna-encoding/README.md) — bitstrings y recursión

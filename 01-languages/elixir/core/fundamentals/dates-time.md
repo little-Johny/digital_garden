@@ -204,3 +204,10 @@ end
 | `Date.day_of_week/1` | Día de la semana (1=lunes, 7=domingo) |
 | `Date.compare/2` | Comparación semántica → `:lt`, `:eq`, `:gt` |
 | `Time.compare/2` | Comparación semántica → `:lt`, `:eq`, `:gt` |
+
+
+-----
+
+## 🏋️ Practicado en
+
+- [library-fees (#21)](../../exercism/library-fees/README.md) — NaiveDateTime y comparación de fechas

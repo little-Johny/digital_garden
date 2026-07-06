@@ -183,3 +183,13 @@ end
 
 **¿Por qué usarlo?**
 Mantiene el código plano y legible. Si `Map.fetch` falla (devuelve `:error`), salta directo al `else` sin ejecutar el resto.
+
+
+-----
+
+## 🏋️ Practicado en
+
+- [pacman-rules (#3)](../../exercism/pacman-rules/) — condicionales booleanas
+- [log-level (#5)](../../exercism/log-level/README.md) — cond
+- [german-sysadmin (#14)](../../exercism/german-sysadmin/README.md) — case
+- [name-badge (#16)](../../exercism/name-badge/README.md) — if y manejo de nil
