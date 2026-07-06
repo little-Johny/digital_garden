@@ -2,7 +2,7 @@
 
 Seguimiento del progreso basado en la [guía de evaluación](../../06-resources/learning-evaluation-guide.md).
 
-**Última actualización:** 2026-01-26
+**Última actualización:** 2026-07-06
 
 ---
 
@@ -38,16 +38,20 @@ Seguimiento del progreso basado en la [guía de evaluación](../../06-resources/
 
 ### Checkpoint 3: Aplicación 🔄 En progreso
 
-| Tema              | Estado | Archivo                          |
-| ----------------- | ------ | -------------------------------- |
-| Procesos (básico) | ✅     | `core/fundamentals/processes.md` |
-| Manejo de errores | ⬜     | -                                |
-| I/O y archivos    | ⬜     | -                                |
-| Mix (proyectos)   | ⬜     | -                                |
-| Structs           | ⬜     | -                                |
-| Protocolos        | ⬜     | -                                |
+| Tema              | Estado | Archivo                             |
+| ----------------- | ------ | ----------------------------------- |
+| Procesos (básico) | ✅     | `core/fundamentals/processes.md`    |
+| I/O y archivos    | ✅     | `core/fundamentals/io-file-path.md` |
+| Fechas y tiempo   | ✅     | `core/fundamentals/dates-time.md`   |
+| Manejo de errores | ⬜     | -                                   |
+| Mix (proyectos)   | ⬜     | -                                   |
+| Structs           | ⬜     | -                                   |
+| Protocolos        | ⬜     | -                                   |
 
 **Evaluación:** Crear proyecto con Mix que procese archivos reales.
+
+> ⚠️ Nota: el proyecto `core/projects/hangman/` fue clonado como referencia, no resuelto.
+> Sus conceptos (structs, tests, GenServer, protocols) NO cuentan como practicados.
 
 ---
 
@@ -67,13 +71,36 @@ Seguimiento del progreso basado en la [guía de evaluación](../../06-resources/
 
 ## Ejercicios Completados
 
-### Exercism
+### Exercism (en `exercism/`)
 
-| Ejercicio    | Fecha | Conceptos                |
-| ------------ | ----- | ------------------------ |
-| hello-world  | -     | Módulos, funciones       |
-| lasagna      | -     | Funciones, aridad        |
-| pacman-rules | -     | Booleanos, condicionales |
+| #   | Ejercicio               | Conceptos                                |
+| --- | ----------------------- | ---------------------------------------- |
+| 1   | hello-world             | Módulos, funciones                       |
+| 2   | lasagna                 | Funciones, aridad                        |
+| 3   | pacman-rules            | Booleanos, condicionales                 |
+| 4   | secrets                 | Funciones anónimas, Bitwise              |
+| 5   | log-level               | Atoms, cond, argumentos por defecto      |
+| 6   | language-list           | Listas                                   |
+| 7   | guessing-game           | Pattern matching, guards                 |
+| 9   | kitchen-calculator      | Tuplas, pattern matching                 |
+| 11  | bird-count              | Recursión, listas                        |
+| 12  | high-score              | Maps, atributos de módulo                |
+| 13  | city-office             | Documentación, typespecs                 |
+| 14  | german-sysadmin         | Charlists, case                          |
+| 15  | rpg-character-sheet     | IO (puts/gets/inspect)                   |
+| 16  | name-badge              | nil, if                                  |
+| 17  | take-a-number           | Procesos, send/receive                   |
+| 18  | wine-cellar             | Keyword lists                            |
+| 19  | paint-by-number         | Bitstrings                               |
+| 20  | dna-encoding            | Recursión de cola, bitstrings            |
+| 21  | library-fees            | NaiveDateTime, fechas                    |
+
+### Incompletos
+
+| #   | Ejercicio               | Estado                                          |
+| --- | ----------------------- | ----------------------------------------------- |
+| 10  | high-school-sweetheart  | ⚠️ Parcial: falta implementar `pair/2`          |
+| 22  | basketball-website      | 🔄 En curso (descargado, sin resolver)          |
 
 ### Pendientes Recomendados
 
@@ -117,7 +144,7 @@ Implementar sin usar Enum:
 
 ## Próximos Pasos
 
-1. **Inmediato:** Resolver 3-5 ejercicios más en Exercism
-2. **Esta semana:** Implementar sum/reverse/map con recursión pura
-3. **Próximo:** Documentar manejo de errores y File I/O
+1. **Inmediato:** Terminar `basketball-website` (#22) y completar `pair/2` de `high-school-sweetheart` (#10)
+2. **Práctica:** Usar el skill `/practicar` — retos de recursión pura y caza de bugs
+3. **Próximo:** Documentar manejo de errores y practicar Structs (sesión de práctica, no Hangman)
 4. **Después:** Crear mini-proyecto con Mix
