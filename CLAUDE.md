@@ -9,11 +9,10 @@ Responde siempre en español.
 /
 ├── 00-inbox/          # Notas rápidas pendientes
 ├── 01-languages/
-│   ├── <lang>/
-│   │   ├── core/      # Apuntes de fundamentos del lenguaje
-│   │   └── progress.md
-│   └── exercism/
-│       └── <lang>/    # Ejercicios de Exercism (uno por carpeta)
+│   └── <lang>/
+│       ├── core/      # Apuntes de fundamentos del lenguaje
+│       ├── exercism/  # Ejercicios de Exercism (uno por carpeta)
+│       └── progress.md
 ├── 02-concepts/       # Teoria agnóstica al lenguaje
 ├── 03-architecture/   # Patrones, diseño de sistemas
 ├── 04-devops/         # Docker, CI/CD, infraestructura
@@ -46,7 +45,7 @@ Siempre pedir confirmación antes de hacer un commit.
 
 ### Comando: "nuevo ejercicio `<lenguaje>/<nombre>`"
 
-1. Leer `01-languages/exercism/<lenguaje>/<nombre>/README.md`
+1. Leer `01-languages/<lenguaje>/exercism/<nombre>/README.md`
 2. Identificar los conceptos nuevos que introduce el ejercicio
 3. Revisar los archivos de apuntes relevantes en `01-languages/<lenguaje>/` y determinar si ya están documentados o si hay que complementarlos
 4. Explicar los conceptos nuevos al usuario (sin resolver el ejercicio)
