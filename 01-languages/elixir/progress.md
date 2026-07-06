@@ -94,13 +94,13 @@ Seguimiento del progreso basado en la [guía de evaluación](../../06-resources/
 | 19  | paint-by-number         | Bitstrings                               |
 | 20  | dna-encoding            | Recursión de cola, bitstrings            |
 | 21  | library-fees            | NaiveDateTime, fechas                    |
+| 22  | basketball-website      | Access Behaviour, get_in, recursión      |
 
 ### Incompletos
 
 | #   | Ejercicio               | Estado                                          |
 | --- | ----------------------- | ----------------------------------------------- |
 | 10  | high-school-sweetheart  | ⚠️ Parcial: falta implementar `pair/2`          |
-| 22  | basketball-website      | 🔄 En curso (descargado, sin resolver)          |
 
 ### Pendientes Recomendados
 
@@ -144,7 +144,7 @@ Implementar sin usar Enum:
 
 ## Próximos Pasos
 
-1. **Inmediato:** Terminar `basketball-website` (#22) y completar `pair/2` de `high-school-sweetheart` (#10)
-2. **Práctica:** Usar el skill `/practicar` — retos de recursión pura y caza de bugs
+1. **Inmediato:** Completar `pair/2` de `high-school-sweetheart` (#10)
+2. **Práctica:** Usar el skill `/practicar` — retos de recursión pura (`my_map`, `my_reduce`) para fijar el flujo de datos en recursión
 3. **Próximo:** Documentar manejo de errores y practicar Structs (sesión de práctica, no Hangman)
 4. **Después:** Crear mini-proyecto con Mix

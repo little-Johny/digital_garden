@@ -126,7 +126,57 @@ Elixir provee el módulo `Map` para manipulaciones.
 
 -----
 
-## 3. Conceptos Extra
+## 3. Access Behaviour
+
+Es una **interfaz genérica** para leer datos de estructuras basadas en claves usando **corchetes** después de la variable: `estructura[clave]`. Está implementada para Maps, Keyword Lists... y `nil`.
+
+```elixir
+my_map = %{key: "my value"}
+your_map = %{"key" => "your value"}
+
+my_map[:key]    # => "my value"
+your_map[:key]  # => nil  (la clave es string, no átomo)
+your_map["key"] # => "your value"
+```
+
+### Las dos reglas que lo hacen especial
+
+1. **Clave inexistente → `nil`**, nunca lanza error (a diferencia de `map.clave`, que explota con KeyError).
+2. **`nil` también implementa el behaviour:** `nil[cualquier_clave]` devuelve `nil` en vez de fallar.
+
+> **El truco de la propagación:** al combinar las dos reglas, puedes encadenar accesos sobre estructuras anidadas sin miedo. Si una clave intermedia no existe, aparece un `nil`... y el `nil` "viaja" solo por el resto de la cadena sin explotar.
+>
+> ```elixir
+> data = %{"equipo" => %{"mascota" => "oso"}}
+> data["equipo"]["mascota"]  # => "oso"
+> data["equipo"]["colores"]  # => nil (no existe)
+> data["patrocinador"]["nombre"] # => nil (nil["nombre"] => nil, ¡sin error!)
+> ```
+
+### `get_in/2` — navegación anidada
+
+`Kernel.get_in(data, lista_de_claves)` recorre una estructura anidada clave por clave (con la misma propagación de `nil`). Es la versión "mayordomo" de escribir la recursión a mano: le das la casa y el llavero ordenado, y te trae lo que hay en el último cuarto.
+
+```elixir
+data = %{"a" => %{"b" => %{"c" => 42}}}
+get_in(data, ["a", "b", "c"])  # => 42
+get_in(data, ["a", "x", "c"])  # => nil
+```
+
+> Practicado en el ejercicio **basketball-website** (Exercism #22): primero implementando la navegación con recursión propia, luego refactorizando con `get_in`.
+
+### Comparativa de formas de acceso a un Map
+
+| Forma | Clave inexistente | Restricciones |
+| :--- | :--- | :--- |
+| `map[clave]` (Access) | `nil` (seguro) | Ninguna |
+| `map.clave` | ❌ KeyError | Solo claves átomo |
+| `Map.get(map, clave)` | `nil` (o default) | Ninguna |
+| `get_in(map, claves)` | `nil` (seguro) | Para estructuras anidadas |
+
+-----
+
+## 4. Conceptos Extra
 
 ### Structs (La tercera estructura)
 
