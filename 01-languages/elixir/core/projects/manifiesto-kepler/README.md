@@ -118,8 +118,8 @@ quedar en una sola línea de cuerpo.
 
 - [x] `total/1` suma las cantidades y retorna `0` para la lista vacía
 - [x] `invertir/1` retorna la lista en orden inverso
-- [ ] `mapear/2` aplica la función a cada elemento sin alterar el orden
-- [ ] `filtrar/2` conserva solo los elementos que cumplen el predicado
+- [x] `mapear/2` aplica la función a cada elemento sin alterar el orden
+- [x] `filtrar/2` conserva solo los elementos que cumplen el predicado
 - [ ] `reducir/3` pliega la lista combinando con el valor inicial
 - [ ] Bonus: `total/1` e `invertir/1` reescritas sobre `reducir/3`
 - [ ] `elixir manifiesto.exs` corre sin errores y muestra los resultados esperados
