@@ -1,6 +1,7 @@
 defmodule Manifiesto do
   def total(manifiest \\ []) do
-    do_total(manifiest, 0)
+    #do_total(manifiest, 0)
+    
   end
 
   defp do_total([], acc), do: acc
@@ -50,6 +51,17 @@ defmodule Manifiesto do
 
     do_filtrar(tail, predicado, result)
   end
+
+
+  def reducir(manifiest, initial_state, combiner) do
+    do_reducir(manifiest, initial_state, combiner)
+  end
+
+  defp do_reducir([], state, _combiner), do: state
+  defp do_reducir([head | tail], state, combiner) do
+    new_state = combiner.(head, state)
+    do_reducir(tail, new_state, combiner)
+  end
 end
 
 # Count total of unities
@@ -61,5 +73,7 @@ end
 #Alter list
 #IO.inspect(Manifiesto.mapear([1,2,3], fn x -> x * 2  end))
 
+#Filter
+#IO.inspect(Manifiesto.filtrar([{"oxígeno", 0}, {"agua", 7}, {"raciones", 2}], fn {_, x} -> x > 0  end))
 
-IO.inspect(Manifiesto.filtrar([{"oxígeno", 0}, {"agua", 7}, {"raciones", 2}], fn {_, x} -> x > 0  end))
+IO.inspect(Manifiesto.reducir(["W","HA","A","T"], "", fn letter, acc  -> acc <> letter  end))

@@ -120,7 +120,7 @@ quedar en una sola línea de cuerpo.
 - [x] `invertir/1` retorna la lista en orden inverso
 - [x] `mapear/2` aplica la función a cada elemento sin alterar el orden
 - [x] `filtrar/2` conserva solo los elementos que cumplen el predicado
-- [ ] `reducir/3` pliega la lista combinando con el valor inicial
+- [x] `reducir/3` pliega la lista combinando con el valor inicial
 - [ ] Bonus: `total/1` e `invertir/1` reescritas sobre `reducir/3`
 - [ ] `elixir manifiesto.exs` corre sin errores y muestra los resultados esperados
 - [ ] Ni una sola llamada a `Enum`, `Stream`, `List` ni `for`
