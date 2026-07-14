@@ -1,4 +1,8 @@
 defmodule Manifiesto do
+  @type manifiesto :: [{ String.t(), integer()}]
+
+
+  @spec total(manifiest::manifiesto()) :: integer()
   def total(manifiest \\ []) do
     #do_total(manifiest, 0)
     do_reducir(manifiest, 0, fn {_,value}, acc -> acc + value  end)
@@ -11,7 +15,7 @@ defmodule Manifiesto do
     do_total(tail, total)
   end
 
-
+  @spec invertir(list::list()) :: list()
   def invertir(list \\ []) do
     #do_invertir(list, [])
     do_reducir(list, [], fn item, acc ->  [item | acc] end)
@@ -24,7 +28,7 @@ defmodule Manifiesto do
     #do_invertir(tail) ++ [head]
   end
 
-
+  @spec mapear(list::list(), action::(any() -> any()))::list()
   def mapear(list, action) do
     do_mapear(list, action, [])
   end
@@ -35,7 +39,7 @@ defmodule Manifiesto do
     do_mapear(tail, action ,altered_list)
   end
 
-
+  @spec filtrar(manifiest::manifiesto(), predicado::(any() -> boolean()))::manifiesto()
   def filtrar(manifiest, predicado) do
     do_filtrar(manifiest, predicado, [])
   end
@@ -53,9 +57,9 @@ defmodule Manifiesto do
     do_filtrar(tail, predicado, result)
   end
 
-
-  def reducir(manifiest, initial_state, combiner) do
-    do_reducir(manifiest, initial_state, combiner)
+  @spec reducir(list::list(), initial_state::any(), combiner::(any(), any() -> any()))::any()
+  def reducir(list, initial_state, combiner) do
+    do_reducir(list, initial_state, combiner)
   end
 
   defp do_reducir([], state, _combiner), do: state
