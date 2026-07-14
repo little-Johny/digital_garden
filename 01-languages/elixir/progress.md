@@ -2,7 +2,7 @@
 
 Seguimiento del progreso basado en la [guía de evaluación](../../06-resources/learning-evaluation-guide.md).
 
-**Última actualización:** 2026-07-06
+**Última actualización:** 2026-07-13
 
 ---
 
@@ -116,15 +116,15 @@ Seguimiento del progreso basado en la [guía de evaluación](../../06-resources/
 
 ## Retos de Auto-evaluación
 
-### Checkpoint 1-2: Recursión Pura
+### Checkpoint 1-2: Recursión Pura ✅ Completo (2026-07-13)
 
-Implementar sin usar Enum:
+Implementados sin usar Enum en el proyecto [manifiesto-kepler](core/projects/manifiesto-kepler/README.md):
 
-- [ ] `sum/1` - Sumar elementos de una lista
-- [ ] `reverse/1` - Invertir una lista
-- [ ] `my_map/2` - Implementar map
-- [ ] `my_filter/2` - Implementar filter
-- [ ] `my_reduce/3` - Implementar reduce
+- [x] `sum/1` - Sumar elementos de una lista (`Manifiesto.total/1`)
+- [x] `reverse/1` - Invertir una lista (`Manifiesto.invertir/1`)
+- [x] `my_map/2` - Implementar map (`Manifiesto.mapear/2`)
+- [x] `my_filter/2` - Implementar filter (`Manifiesto.filtrar/2`)
+- [x] `my_reduce/3` - Implementar reduce (`Manifiesto.reducir/3`, bonus: `total` e `invertir` reescritas sobre él)
 
 ### Checkpoint 3: Proyecto Práctico
 
@@ -145,6 +145,7 @@ Implementar sin usar Enum:
 ## Próximos Pasos
 
 1. **Inmediato:** Completar `pair/2` de `high-school-sweetheart` (#10)
-2. **Práctica:** Usar el skill `/practicar` — retos de recursión pura (`my_map`, `my_reduce`) para fijar el flujo de datos en recursión
+2. ~~**Práctica:** retos de recursión pura~~ ✅ Completado con `manifiesto-kepler` (2026-07-13)
 3. **Próximo:** Documentar manejo de errores y practicar Structs (sesión de práctica, no Hangman)
 4. **Después:** Crear mini-proyecto con Mix
+5. **Refuerzo pendiente:** contrato de funciones de orden superior (qué recibe exactamente el `fn` que pasas como argumento) — costó 2 iteraciones en el bonus de manifiesto-kepler

@@ -195,3 +195,4 @@ head # 1
 
 - [guessing-game (#7)](../../exercism/guessing-game/README.md) — pattern matching y guards
 - [kitchen-calculator (#9)](../../exercism/kitchen-calculator/README.md) — pattern matching en tuplas
+- [manifiesto-kepler (proyecto)](../projects/manifiesto-kepler/README.md) — `[head | tail]` en cláusulas y desarme de tuplas en argumentos de `fn`

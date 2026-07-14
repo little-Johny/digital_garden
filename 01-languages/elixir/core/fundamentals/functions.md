@@ -197,3 +197,4 @@ fun = &Math.sum/2
 - [lasagna (#2)](../../exercism/lasagna/) — funciones nombradas y aridad
 - [secrets (#4)](../../exercism/secrets/README.md) — funciones anónimas
 - [high-school-sweetheart (#10)](../../exercism/high-school-sweetheart/README.md) — pipe operator
+- [manifiesto-kepler (proyecto)](../projects/manifiesto-kepler/README.md) — funciones anónimas como argumento (combinadores y predicados), funciones de orden superior
