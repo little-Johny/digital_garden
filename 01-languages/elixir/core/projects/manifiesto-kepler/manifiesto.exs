@@ -1,7 +1,7 @@
 defmodule Manifiesto do
   def total(manifiest \\ []) do
     #do_total(manifiest, 0)
-    
+    do_reducir(manifiest, 0, fn {_,value}, acc -> acc + value  end)
   end
 
   defp do_total([], acc), do: acc
@@ -13,7 +13,8 @@ defmodule Manifiesto do
 
 
   def invertir(list \\ []) do
-    do_invertir(list, [])
+    #do_invertir(list, [])
+    do_reducir(list, [], fn item, acc ->  [item | acc] end)
   end
 
   defp do_invertir([], acc), do: acc

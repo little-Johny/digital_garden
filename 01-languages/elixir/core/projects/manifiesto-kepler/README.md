@@ -121,6 +121,6 @@ quedar en una sola línea de cuerpo.
 - [x] `mapear/2` aplica la función a cada elemento sin alterar el orden
 - [x] `filtrar/2` conserva solo los elementos que cumplen el predicado
 - [x] `reducir/3` pliega la lista combinando con el valor inicial
-- [ ] Bonus: `total/1` e `invertir/1` reescritas sobre `reducir/3`
-- [ ] `elixir manifiesto.exs` corre sin errores y muestra los resultados esperados
-- [ ] Ni una sola llamada a `Enum`, `Stream`, `List` ni `for`
+- [x] Bonus: `total/1` e `invertir/1` reescritas sobre `reducir/3`
+- [x] `elixir manifiesto.exs` corre sin errores y muestra los resultados esperados
+- [x] Ni una sola llamada a `Enum`, `Stream`, `List` ni `for`
