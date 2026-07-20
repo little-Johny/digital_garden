@@ -127,26 +127,38 @@ Una transición no listada es un error que el código debe rechazar.
 
 ### 2.1. Estados del Vuelo
 
-Estados candidatos (a confirmar/completar):
+Una máquina de estados es un **grafo con bifurcaciones**, no una línea: desde un estado
+pueden salir varias flechas (ramas alternativas), y cada vuelo real toma *una*. No todos
+los vuelos pasan por todos los estados.
 
-- `:programado`
-- `:embarcando`
-- `:en_vuelo`
-- `:aterrizado`
-- `:cancelado`
+Estados:
 
-Transiciones válidas (llenar):
+- `:programado` — creado, aún no abre embarque
+- `:retrasado` — pospuesto (sigue sin volar)
+- `:embarcando` — pasajeros abordando
+- `:en_vuelo` — en el aire
+- `:aterrizado` — **terminal**, ciclo completado con éxito
+- `:cancelado` — **terminal**, el vuelo no se realizará
+
+Transiciones válidas (ramas):
 
 ```
-:programado  → ?
-:embarcando  → ?
-:en_vuelo    → ?
-...
+:programado  → :embarcando      (a tiempo)
+:programado  → :retrasado       (se retrasa)
+:programado  → :cancelado       (se cancela antes de abrir)
+
+:retrasado   → :embarcando      (finalmente embarca)
+:retrasado   → :cancelado       (se cancela estando retrasado)
+
+:embarcando  → :en_vuelo        (despega)
+:embarcando  → :cancelado       (se cancela en puerta)
+
+:en_vuelo    → :aterrizado      (único camino)
 ```
 
-Preguntas a resolver:
-- ¿Desde qué estados se puede **cancelar**? ¿Desde cuáles ya NO?
-- ¿Hay estados intermedios que falten (retrasado, en puerta, etc.)?
+> **Terminales:** `:aterrizado` y `:cancelado` no tienen salida — ahí termina el ciclo.
+> Desde `:en_vuelo` NO se puede cancelar (un avión en el aire no se "cancela": eso sería
+> un desvío/emergencia, otro concepto fuera de la Fase 1).
 
 ### 2.2. Estados de la Reserva
 
@@ -164,13 +176,29 @@ Transición:
 ## 3. Reglas de negocio (invariantes)
 
 Cosas que **siempre** deben cumplirse. En Elixir se vuelven funciones que devuelven
-`{:ok, ...}` o `{:error, motivo}`.
+`{:ok, ...}` (se cumple) o `{:error, motivo}` (se viola). Protegen al dominio de estados imposibles.
+
+### 3.1. Reglas de operación (sobre acciones)
+
+**Al reservar un asiento:**
 
 - [x] **No doble reserva (ocupación derivada):** no se puede crear una Reserva para un `asiento_id` que ya tiene una Reserva `:confirmada` en el mismo `vuelo_id`. La ocupación de un asiento en un vuelo *es* la existencia de esa reserva.
-- [ ] **Consistencia asiento ↔ avión:** el `asiento_id` de una Reserva debe pertenecer al avión (`avion_id`) asignado al `vuelo_id`. (surge de que el Asiento pertenece al Avión, no al Vuelo)
-- [ ] ¿Se puede reservar en un vuelo `:cancelado`? ¿`:en_vuelo`?
-- [ ] ¿Un pasajero puede tener dos reservas en el mismo vuelo?
-- [ ] _(agregar las que surjan)_
+- [x] **Consistencia asiento ↔ avión:** el `asiento_id` de una Reserva debe pertenecer al avión (`avion_id`) asignado al `vuelo_id`. (surge de que el Asiento pertenece al Avión, no al Vuelo)
+- [x] **Estado del vuelo permitido:** solo se reserva si el vuelo está en `:programado` o `:retrasado`. En `:embarcando` se permite **venta de último minuto** si hay cupo en el avión (⚠️ regla futura: además, que el pasajero no lleve equipaje — depende de modelar **Equipaje** en Fase 2; por ahora en Fase 1 solo se valida el cupo). En `:en_vuelo`, `:aterrizado` y `:cancelado` NO se puede reservar.
+- [x] **Debe existir Tarifa para la clase:** para reservar un asiento de cierta clase, tiene que existir una Tarifa `(vuelo_id, clase)`; si no, no hay precio que cobrar.
+- [x] **Varias reservas por pasajero (permitido):** un mismo pasajero SÍ puede tener varias reservas en el mismo vuelo (asientos distintos: equipaje, comodidad). No hay tope por pasajero — el límite real lo pone "no doble reserva" a nivel de *asiento*.
+
+**Al cancelar una reserva:**
+
+- [x] Una Reserva solo se cancela desde `:confirmada` (ver §2.2). Al pasar a `:cancelada`, el asiento se libera automáticamente (la ocupación es derivada).
+
+### 3.2. Invariantes de datos (formas válidas)
+
+- [x] **`origen_id ≠ destino_id`:** un vuelo no puede salir y llegar al mismo aeropuerto.
+- [x] **`salida < llegada`:** no se puede llegar antes de salir.
+- [x] **`precio_pagado` coherente:** al reservar, `precio_pagado = precio − descuento` de la Tarifa vigente en ese momento (*snapshot*; no cambia si la Tarifa cambia después).
+
+> Las reglas nuevas que surjan en fases siguientes se agregan aquí.
 
 ---
 
